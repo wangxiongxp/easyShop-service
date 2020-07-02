@@ -1,0 +1,59 @@
+
+查询列表用query
+单个查询用find
+
+
+MYSQL     => jdbcType => javaType
+
+BIT       => BIT       => Boolean
+  TINYINT   => BIT       => Boolean
+  TINYINT   => TINYINT   => Byte
+  SMALLINT  => SMALLINT  => Short
+INTEGER   => INTEGER   => Integer
+BIGINT    => BIGINT    => Long
+  DOUBLE    => DOUBLE    => DOUBLE
+DECIMAL   => DECIMAL   => BigDecimal
+  DATE      => DATE      => Date
+DATETIME  => Timestamp => Date
+TIMESTAMP => Timestamp => Date
+CHAR      => CHAR      => String
+VARCHAR   => VARCHAR   => String
+  TEXT      => VARCHAR   => String
+TEXT      => LONGVARCHAR   => String
+
+
+display: flex;
+flex-direction: row; 默认主轴为水平方向，起点在左端
+flex-direction: row-reverse; 主轴为水平方向，起点在右端
+flex-direction: column; 主轴为垂直方向，起点在上沿
+flex-direction: column-reverse; 主轴为垂直方向，起点在下沿
+flex-wrap: nowrap; 默认不换行
+flex-wrap: wrap; 换行，第一行在上方
+flex-wrap: wrap-reverse; 换行，第一行在下方
+justify-content: flex-start | flex-end | center | space-between | space-around; 在主轴上的对齐方式
+align-items: flex-start | flex-end | center | baseline | stretch; 交叉轴上对齐方式
+
+
+
+https://natapp.cn/  内网穿透
+
+1、安装JDK
+java -version
+rpm -qa|grep openjdk -i
+rpm -e nodeps 需要删除的软件
+
+2、配置JDK
+/usr/java 专门用来存放jdk
+/home/software  软件ftp上传目录，jdk解压后放到/usr/java
+tar -zxvf jdk.tar.gz
+mv jdk /usr/java/
+vi /etc/profile 配置环境变量
+source /etc/profile
+
+3、Tomcat
+/usr/local 专门用来存放tomcat
+编辑server.xml
+8080 -> 8088
+8005 -> 8008  shutdown
+8009 -> 8049
+

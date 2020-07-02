@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aliboy.mapper.TopicMapper" >
+  <resultMap id="BaseResultMap" type="com.aliboy.model.entity.Topic" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="topic_category_id" property="topicCategoryId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="subtitle" property="subtitle" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+    <result column="item_pic_url" property="itemPicUrl" jdbcType="VARCHAR" />
+    <result column="floor_price" property="floorPrice" jdbcType="DECIMAL" />
+    <result column="read_count" property="readCount" jdbcType="INTEGER" />
+    <result column="sort_order" property="sortOrder" jdbcType="INTEGER" />
+    <result column="is_show" property="isShow" jdbcType="BIT" />
+    <result column="scene_pic_url" property="scenePicUrl" jdbcType="VARCHAR" />
+    <result column="topic_template_id" property="topicTemplateId" jdbcType="INTEGER" />
+    <result column="topic_tag_id" property="topicTagId" jdbcType="INTEGER" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="queryListPage" parameterType="map" resultMap="BaseResultMap">
+    select * from topic
+    <where>
+      is_show = true
+    </where>
+    <if test="sort!=null and sort!=''">
+      order by ${sort}
+      <if test="order!=null and order!=''">
+        ${order}
+      </if>
+    </if>
+  </select>
+
+</mapper>
