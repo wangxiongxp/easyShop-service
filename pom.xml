@@ -193,4 +193,63 @@
 
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <packageType>jar</packageType>
+                <activedProfile>dev</activedProfile>
+                <version-suffix>SNAPSHOT</version-suffix>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>integration</id>
+            <properties>
+                <packageType>war</packageType>
+                <activedProfile>integration</activedProfile>
+                <version-suffix>SNAPSHOT</version-suffix>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <packageType>war</packageType>
+                <activedProfile>test</activedProfile>
+                <version-suffix>BETA</version-suffix>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <packageType>war</packageType>
+                <activedProfile>prod</activedProfile>
+                <version-suffix>RELEASE</version-suffix>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
 </project>
